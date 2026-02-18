@@ -148,6 +148,9 @@ _data = {
 &"crouch": SubResource("Animation_5ec5e")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ll17t"]
+radius = 0.7
+
 [sub_resource type="Animation" id="Animation_gh776"]
 resource_name = "RESET"
 length = 0.001
@@ -378,6 +381,9 @@ MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
 
+[sub_resource type="LabelSettings" id="LabelSettings_ll17t"]
+font_size = 36
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
 
 [node name="Character" type="CharacterBody3D" unique_id=62456673 node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH")]
@@ -403,6 +409,7 @@ controls = {
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1197750677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cast_shadow = 0
 mesh = SubResource("CapsuleMesh_jw1de")
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=170086955]
@@ -416,6 +423,15 @@ libraries/ = SubResource("AnimationLibrary_5e5t5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Head" unique_id=880256586]
+
+[node name="InteractShapeCast" type="ShapeCast3D" parent="Head/Camera" unique_id=1357819827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0703544e-08, 0.95541334, -1.1599616)
+shape = SubResource("SphereShape3D_ll17t")
+margin = 0.23
+max_results = 16
+collision_mask = 2
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0, 0, 1)
 
 [node name="HeadbobAnimation" type="AnimationPlayer" parent="Head" unique_id=587975753]
 libraries/ = SubResource("AnimationLibrary_o0unb")
@@ -449,6 +465,23 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/DebugPanel/MarginContainer" unique_id=415853480]
 layout_mode = 2
+
+[node name="TalkLabel" type="Label" parent="UserInterface" unique_id=1318678772]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Talk"
+label_settings = SubResource("LabelSettings_ll17t")
+horizontal_alignment = 1
 
 [node name="CrouchCeilingDetection" type="ShapeCast3D" parent="." unique_id=1539373016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

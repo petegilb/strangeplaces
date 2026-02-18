@@ -176,7 +176,9 @@ func _physics_process(delta): # Most things happen here.
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	if not is_on_floor() and gravity and gravity_enabled:
 		velocity.y -= gravity * delta
-
+	
+	check_interaction()
+	
 	handle_jumping()
 
 	var input_dir = Vector2.ZERO
@@ -489,5 +491,24 @@ func handle_pausing():
 			Input.MOUSE_MODE_VISIBLE:
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 				#get_tree().paused = false
+
+#endregion
+
+#region strangeplaces
+func check_interaction():
+	if $Head/Camera/InteractShapeCast.is_colliding():
+		$UserInterface/TalkLabel.show()
+		var collider: Node3D = $Head/Camera/InteractShapeCast.get_collider(0)
+		if Input.is_action_just_pressed("interact"):
+			print("Interacted here with %s", collider.name)
+			# This is where we should activate dialogue timelines
+			activate_dialogue("timeline")
+	else:
+		$UserInterface/TalkLabel.hide()
+
+func activate_dialogue(timeline_name: String) -> Node:
+	if Dialogic.current_timeline != null:
+		return null
+	return Dialogic.start(timeline_name)
 
 #endregion

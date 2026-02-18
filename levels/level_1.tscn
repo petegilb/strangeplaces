@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://bd4lrkks26ju0"]
 
 [ext_resource type="PackedScene" uid="uid://b7ehppqsck0v" path="res://core/player/player.tscn" id="1_vn7o3"]
+[ext_resource type="PackedScene" uid="uid://0vmntyr615js" path="res://addons/prototype_mini_bundle/prop_cube.tscn" id="2_jirdo"]
+[ext_resource type="Material" uid="uid://dgjiw8udooecr" path="res://addons/prototype_mini_bundle/M_prototype_dark.tres" id="3_kx6l7"]
+[ext_resource type="Material" uid="uid://1nvrnylcajfg" path="res://addons/prototype_mini_bundle/M_prototype_red.tres" id="4_btoec"]
+[ext_resource type="PackedScene" uid="uid://c5hkhu8upxsf7" path="res://addons/prototype_mini_bundle/prop_cylinder.tscn" id="4_n46q3"]
+[ext_resource type="Material" uid="uid://7to3kb1tisdd" path="res://addons/prototype_mini_bundle/M_prototype_orange.tres" id="5_n46q3"]
+[ext_resource type="Material" uid="uid://brj2jayoo0l0d" path="res://addons/prototype_mini_bundle/M_prototype_blue.tres" id="7_gwceb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vn7o3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -10,26 +16,130 @@ ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 sky_material = SubResource("ProceduralSkyMaterial_vn7o3")
 
 [sub_resource type="Environment" id="Environment_bt44k"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.39340633, 0.39340633, 0.39340633, 1)
 sky = SubResource("Sky_jirdo")
 tonemap_mode = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vn7o3"]
-albedo_color = Color(0.36078432, 0.2627451, 1, 1)
+ssao_enabled = true
+glow_enabled = true
+glow_intensity = 0.9
+glow_bloom = 0.13
+fog_density = 0.0001
 
 [node name="Level1" type="Node3D" unique_id=1819692769]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2084403596]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=616372685]
 environment = SubResource("Environment_bt44k")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1642554365]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5343323, -0.56195605, -0.15002441)
-use_collision = true
-size = Vector3(28.535706, 1, 17.4729)
-material = SubResource("StandardMaterial3D_vn7o3")
-
 [node name="Character" parent="." unique_id=62456673 instance=ExtResource("1_vn7o3")]
+
+[node name="Models" type="Node3D" parent="." unique_id=849166848]
+
+[node name="PropCube" parent="Models" unique_id=602359021 instance=ExtResource("2_jirdo")]
+transform = Transform3D(1, 0, 0, 0, 24.783443, 0, 0, 0, 22.099998, -16, 7, 0)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube10" parent="Models" unique_id=249136041 instance=ExtResource("2_jirdo")]
+transform = Transform3D(-4.371139e-08, 0, -22.099998, 0, 24.783443, 0, 1, 0, -9.660216e-07, -17, 7, -28)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube11" parent="Models" unique_id=237907734 instance=ExtResource("2_jirdo")]
+transform = Transform3D(-4.371139e-08, 0, -22.099998, 0, 24.783443, 0, 1, 0, -9.660216e-07, 18.05664, 7, -28)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube13" parent="Models" unique_id=1966358825 instance=ExtResource("2_jirdo")]
+transform = Transform3D(-3.710232e-08, 0, -53.35731, 0, 24.783443, 0, 0.8488022, 0, -2.332322e-06, 0.9319339, 26.430548, -28)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube19" parent="Models" unique_id=332632858 instance=ExtResource("2_jirdo")]
+transform = Transform3D(-3.710232e-08, 0, -53.35731, 0, 24.783443, 0, 0.8488022, 0, -2.332322e-06, 0.9319339, 31.430548, -12)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube7" parent="Models" unique_id=1039785553 instance=ExtResource("2_jirdo")]
+transform = Transform3D(1, 0, 0, 0, 24.783443, 0, 0, 0, 68.51, -16, 7, -45)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube8" parent="Models" unique_id=1790477731 instance=ExtResource("2_jirdo")]
+transform = Transform3D(1, 0, 0, 0, 24.783443, 0, 0, 0, 68.51, 16, 7, -45)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube17" parent="Models" unique_id=896062785 instance=ExtResource("2_jirdo")]
+transform = Transform3D(-1.223919e-07, -32.714146, 0, 2.8000002, -1.4299807e-06, 0, 0, 0, 68.509995, 0, 20, -45)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube5" parent="Models" unique_id=1548201836 instance=ExtResource("2_jirdo")]
+transform = Transform3D(-4.371139e-08, 0, 22.099998, 0, 24.783443, 0, -1, 0, -9.660216e-07, 0, 7, 21)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube18" parent="Models" unique_id=1594794057 instance=ExtResource("2_jirdo")]
+transform = Transform3D(-4.371139e-08, 0, 33.149998, 0, 24.783443, 0, -1, 0, -1.4490324e-06, 0, 7, -78)
+material_override = ExtResource("4_btoec")
+
+[node name="PropCube14" parent="Models" unique_id=1739611015 instance=ExtResource("2_jirdo")]
+transform = Transform3D(-4.371139e-08, 3.8126115e-14, 35.359997, -0.7071068, 17.524544, -1.0929289e-06, -0.7071067, -17.524544, -1.0929289e-06, 0, 25, 16)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube2" parent="Models" unique_id=483124527 instance=ExtResource("2_jirdo")]
+transform = Transform3D(1, 0, 0, 0, 24.783443, 0, 0, 0, 22.099998, 16, 7, 0)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube15" parent="Models" unique_id=395783774 instance=ExtResource("2_jirdo")]
+transform = Transform3D(-0.6834012, 18.09298, -4.027178e-06, 0.73004305, 16.937037, 1.0790789e-06, 7.422753e-08, -1.1446131e-06, -47.690563, -9.971016, 26.805992, -4.1041794)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube16" parent="Models" unique_id=659039375 instance=ExtResource("2_jirdo")]
+transform = Transform3D(0.6834012, -18.09298, -1.4206307e-07, 0.73004305, 16.937037, 1.0790787e-06, -1.4482687e-08, -4.3712532e-07, 47.690563, 8.028984, 26.805992, -4.1041794)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube3" parent="Models" unique_id=803948970 instance=ExtResource("2_jirdo")]
+transform = Transform3D(0.70710677, 0, -15.627059, 0, 24.783443, 0, 0.70710677, 0, 15.627059, 11, 7, 14)
+material_override = ExtResource("3_kx6l7")
+
+[node name="PropCube4" parent="Models" unique_id=1223546893 instance=ExtResource("2_jirdo")]
+transform = Transform3D(-0.7071068, 0, -15.627058, 0, 24.783443, 0, 0.70710677, 0, -15.627059, -11, 7, 14)
+material_override = ExtResource("3_kx6l7")
+
+[node name="re" parent="Models" unique_id=970582634 instance=ExtResource("4_n46q3")]
+transform = Transform3D(36.745, 0, 0, 0, 36.745, 0, 0, 0, 36.745, 0, -36.821777, 0)
+
+[node name="PropCylinder" parent="Models" unique_id=1657649260 instance=ExtResource("4_n46q3")]
+transform = Transform3D(22.800001, 0, 0, 0, 22.800001, 0, 0, 0, 22.800001, 0, -22, 19)
+material_override = ExtResource("5_n46q3")
+
+[node name="PropCube6" parent="Models" unique_id=2000859607 instance=ExtResource("2_jirdo")]
+transform = Transform3D(31.680002, 0, 0, 0, 12.21, 0, 0, 0, 35.2, 0, -6, -26)
+
+[node name="PropCube9" parent="Models" unique_id=1918678691 instance=ExtResource("2_jirdo")]
+transform = Transform3D(31.680002, 0, 0, 0, 12.21, 0, 0, 0, 35.2, 0, -6, -60)
+
+[node name="PropCube12" parent="Models" unique_id=1318632679 instance=ExtResource("2_jirdo")]
+transform = Transform3D(1.6701434, 0, 0, 0, 1.6701434, 0, 0, 0, 1.6701434, -0.035532594, 1.3000021, 9.987402)
+material_override = ExtResource("3_kx6l7")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Models" unique_id=1516365683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8385615, 16)
+material_override = ExtResource("7_gwceb")
+use_collision = true
+collision_layer = 3
+
+[node name="Lights" type="Node3D" parent="." unique_id=628276393]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights" unique_id=1955304071]
+transform = Transform3D(1, 0, 0, 0, -0.25881892, 0.9659259, 0, -0.9659259, -0.25881892, 0, 20, 8)
+light_energy = 70.0
+shadow_enabled = true
+shadow_bias = 6.189
+spot_range = 24.0
+spot_angle = 18.159798
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=1025310639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, -16)
+light_energy = 3.025
+shadow_enabled = true
+omni_range = 44.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights" unique_id=1729588561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -50)
+light_energy = 8.291
+shadow_enabled = true
+omni_range = 25.0

@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dv7y0g0ijs03r"]
 
+[ext_resource type="Script" uid="uid://byvls8qhcn78f" path="res://core/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bd4lrkks26ju0" path="res://levels/level_1.tscn" id="1_ig7tw"]
 
 [node name="Main" type="Node3D" unique_id=602438174]
+script = ExtResource("1_0xm2m")
 
 [node name="Level1" parent="." unique_id=1819692769 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032846928, 0.004449606, -0.0045642853)
