@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://5qr6txhaltt3"
+path="res://.godot/imported/Strange Places Confirm.ogg-8201fc07a6dbc70997006e010a07ac8b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds update/Strange Places Confirm.ogg"
+dest_files=["res://.godot/imported/Strange Places Confirm.ogg-8201fc07a6dbc70997006e010a07ac8b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

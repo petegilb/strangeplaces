@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bp2ltdxtyu54h"
+path="res://.godot/imported/Strange Places Coin Increase.ogg-91c68f8aae382cbdff6a1e6268b2568e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds update/Strange Places Coin Increase.ogg"
+dest_files=["res://.godot/imported/Strange Places Coin Increase.ogg-91c68f8aae382cbdff6a1e6268b2568e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
