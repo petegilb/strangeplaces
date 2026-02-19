@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://e4p47obruhc7"
+path="res://.godot/imported/Strange Places Jingle Win.ogg-38d03197483b5cd227d4ea71d384a7f0.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds update/Strange Places Jingle Win.ogg"
+dest_files=["res://.godot/imported/Strange Places Jingle Win.ogg-38d03197483b5cd227d4ea71d384a7f0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
