@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkhqwwvmthb4b" path="res://core/player/player.gd" id="1_ll17t"]
 [ext_resource type="Script" uid="uid://u5u7xxlvmcxx" path="res://addons/fpc/debug.gd" id="2_qjudb"]
+[ext_resource type="FontVariation" uid="uid://baisgv3vxy8i7" path="res://assets/fonts/nationalpark-regular.tres" id="3_qjudb"]
 [ext_resource type="Script" uid="uid://dgfl3skp075ft" path="res://addons/fpc/EditorModule.gd" id="3_xttum"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
@@ -382,6 +383,7 @@ MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_ll17t"]
+font = ExtResource("3_qjudb")
 font_size = 36
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]

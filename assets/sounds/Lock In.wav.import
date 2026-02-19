@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://vc7ol8wl08dx"
+path="res://.godot/imported/Lock In.wav-8ec2260ba4af0686220ad24f069d432a.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Lock In.wav"
+dest_files=["res://.godot/imported/Lock In.wav-8ec2260ba4af0686220ad24f069d432a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

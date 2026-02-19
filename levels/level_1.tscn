@@ -32,6 +32,7 @@ fog_density = 0.0001
 environment = SubResource("Environment_bt44k")
 
 [node name="Character" parent="." unique_id=62456673 instance=ExtResource("1_vn7o3")]
+transform = Transform3D(-1, 0, 8.742279e-08, 0, 1, 0, -8.742279e-08, 0, -1, 0, 0, 0)
 
 [node name="Models" type="Node3D" parent="." unique_id=849166848]
 
@@ -117,7 +118,7 @@ transform = Transform3D(1.6701434, 0, 0, 0, 1.6701434, 0, 0, 0, 1.6701434, -0.03
 material_override = ExtResource("3_kx6l7")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Models" unique_id=1516365683]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8385615, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8385615, 8.172068)
 material_override = ExtResource("7_gwceb")
 use_collision = true
 collision_layer = 3

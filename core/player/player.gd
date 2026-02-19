@@ -176,6 +176,12 @@ func _physics_process(delta): # Most things happen here.
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	if not is_on_floor() and gravity and gravity_enabled:
 		velocity.y -= gravity * delta
+		
+	if Dialogic.current_timeline != null:
+		immobile = true
+	else:
+		# this is a temp solution but it should work for this game jam game.
+		immobile = false
 	
 	check_interaction()
 	

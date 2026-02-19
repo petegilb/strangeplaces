@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" format=3 uid="uid://baisgv3vxy8i7"]
+
+[ext_resource type="FontFile" uid="uid://dwn0ekgi73ilh" path="res://assets/fonts/NationalPark-VariableVF.ttf" id="1_35scc"]
+
+[resource]
+base_font = ExtResource("1_35scc")
+variation_opentype = {
+2003265652: 600
+}
