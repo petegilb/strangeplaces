@@ -27,7 +27,10 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 directories/dch_directory={}
 directories/dtl_directory={
-"timeline": "res://dialogic/timeline.dtl"
+"Continue Test": "res://dialogic/Continue Test.dtl",
+"jump test": "res://dialogic/jump test.dtl",
+"timeline": "res://dialogic/timeline.dtl",
+"timeline test": "res://dialogic/timeline test.dtl"
 }
 layout/style_directory={
 "": "res://dialogic/visual_novel_style.tres",

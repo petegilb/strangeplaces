@@ -511,7 +511,7 @@ func check_interaction():
 		if Input.is_action_just_pressed("interact"):
 			print("Interacted here with %s", collider.name)
 			# This is where we should activate dialogue timelines
-			activate_dialogue("timeline")
+			activate_dialogue("timeline test")
 	else:
 		$UserInterface/TalkLabel.hide()
 

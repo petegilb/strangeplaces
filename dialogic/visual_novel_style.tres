@@ -30,6 +30,10 @@ scene = ExtResource("5_hews7")
 [sub_resource type="Resource" id="Resource_33dbv"]
 script = ExtResource("2_2ikul")
 scene = ExtResource("6_1ei04")
+overrides = {
+"typing_sounds_every_nths_character": "5.0",
+"typing_sounds_mode": "1"
+}
 
 [sub_resource type="Resource" id="Resource_xaxck"]
 script = ExtResource("2_2ikul")
@@ -61,4 +65,4 @@ layer_info = {
 "16": SubResource("Resource_1p2gx"),
 "17": SubResource("Resource_qvcdq")
 }
-metadata/_latest_layer = ""
+metadata/_latest_layer = "13"
