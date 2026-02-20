@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bd4lrkks26ju0"]
 
-[ext_resource type="PackedScene" uid="uid://b7ehppqsck0v" path="res://core/player/player.tscn" id="1_vn7o3"]
 [ext_resource type="PackedScene" uid="uid://0vmntyr615js" path="res://addons/prototype_mini_bundle/prop_cube.tscn" id="2_jirdo"]
 [ext_resource type="Material" uid="uid://dgjiw8udooecr" path="res://addons/prototype_mini_bundle/M_prototype_dark.tres" id="3_kx6l7"]
 [ext_resource type="Material" uid="uid://1nvrnylcajfg" path="res://addons/prototype_mini_bundle/M_prototype_red.tres" id="4_btoec"]
@@ -26,15 +25,33 @@ glow_intensity = 0.9
 glow_bloom = 0.13
 fog_density = 0.0001
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_gwceb"]
+vertices = PackedVector3Array(-14.872499, 0.18322754, 22.400002, -11.372499, 0.18322754, 26.150002, -9.622499, 0.18322754, 23.400002, 17.6275, 0.18322754, 7.9000015, 16.8775, 0.18322754, 5.4000015, 15.377501, 0.43322754, 2.9000015, -1.3724995, 0.18322754, 18.900002, 2.8775005, 0.18322754, 19.150002, 17.8775, 0.18322754, 14.650002, 9.627501, 0.18322754, 23.400002, 11.377501, 0.18322754, 26.150002, 15.627501, 0.18322754, 21.150002, -15.372499, 0.43322754, 2.9000015, -16.8725, 0.18322754, 5.4000015, -17.8725, 0.18322754, 9.150002, 17.1275, 0.18322754, 17.900002, 6.6275005, 0.18322754, 20.650002, -17.8725, 0.18322754, 14.650002, -17.1225, 0.18322754, 17.900002, -6.6224995, 0.18322754, 20.650002, 15.377501, 0.43322754, -65.1, -15.372499, 0.43322754, -65.1, -7.1224995, 1.1832275, 22.400002, -8.622499, 1.1832275, 23.900002, -10.372499, 1.1832275, 26.900002, -11.122499, 1.1832275, 30.650002, -10.622499, 1.1832275, 34.4, 10.627501, 1.1832275, 27.650002, 8.627501, 1.1832275, 23.900002, 6.1275005, 1.1832275, 21.650002, 0.87750053, 1.1832275, 19.900002, -8.622499, 1.1832275, 38.15, -5.6224995, 1.1832275, 40.65, -2.1224995, 1.1832275, 41.9, 10.127501, 1.1832275, 35.65, 11.127501, 1.1832275, 31.400002, -3.3724995, 1.1832275, 20.400002, 3.1275005, 1.1832275, 41.65, 7.3775005, 1.1832275, 39.4)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 8), PackedInt32Array(5, 8, 7), PackedInt32Array(5, 7, 6), PackedInt32Array(11, 10, 9), PackedInt32Array(14, 13, 12), PackedInt32Array(15, 11, 8), PackedInt32Array(8, 11, 16), PackedInt32Array(8, 16, 7), PackedInt32Array(17, 0, 18), PackedInt32Array(19, 2, 0), PackedInt32Array(11, 9, 16), PackedInt32Array(6, 12, 5), PackedInt32Array(5, 12, 21), PackedInt32Array(5, 21, 20), PackedInt32Array(14, 12, 17), PackedInt32Array(17, 12, 0), PackedInt32Array(0, 12, 19), PackedInt32Array(19, 12, 6), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(25, 22, 26), PackedInt32Array(28, 27, 29), PackedInt32Array(29, 27, 30), PackedInt32Array(32, 31, 33), PackedInt32Array(33, 31, 26), PackedInt32Array(27, 34, 30), PackedInt32Array(30, 34, 22), PackedInt32Array(22, 34, 26), PackedInt32Array(26, 34, 33), PackedInt32Array(27, 35, 34), PackedInt32Array(22, 36, 30), PackedInt32Array(38, 37, 34), PackedInt32Array(34, 37, 33)]
+
 [node name="Level1" type="Node3D" unique_id=1819692769]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=616372685]
 environment = SubResource("Environment_bt44k")
 
-[node name="Character" parent="." unique_id=62456673 instance=ExtResource("1_vn7o3")]
-transform = Transform3D(-1, 0, 8.742279e-08, 0, 1, 0, -8.742279e-08, 0, -1, 0, 0, 0)
-
 [node name="Models" type="Node3D" parent="." unique_id=849166848]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Models" unique_id=36085449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+navigation_mesh = SubResource("NavigationMesh_gwceb")
+
+[node name="Floor" parent="Models/NavigationRegion3D" unique_id=970582634 instance=ExtResource("4_n46q3")]
+transform = Transform3D(36.745, 0, 0, 0, 36.745, 0, 0, 0, 36.745, 0, -36.821777, 12)
+
+[node name="Floor2" parent="Models/NavigationRegion3D" unique_id=1657649260 instance=ExtResource("4_n46q3")]
+transform = Transform3D(22.800001, 0, 0, 0, 22.800001, 0, 0, 0, 22.800001, 0, -22, 31)
+material_override = ExtResource("5_n46q3")
+
+[node name="Floor3" parent="Models/NavigationRegion3D" unique_id=2000859607 instance=ExtResource("2_jirdo")]
+transform = Transform3D(31.680002, 0, 0, 0, 12.21, 0, 0, 0, 35.2, 0, -6, -14)
+
+[node name="Floor4" parent="Models/NavigationRegion3D" unique_id=1918678691 instance=ExtResource("2_jirdo")]
+transform = Transform3D(31.680002, 0, 0, 0, 12.21, 0, 0, 0, 35.2, 0, -6, -48)
 
 [node name="PropCube" parent="Models" unique_id=602359021 instance=ExtResource("2_jirdo")]
 transform = Transform3D(1, 0, 0, 0, 24.783443, 0, 0, 0, 22.099998, -16, 7, 0)
@@ -99,19 +116,6 @@ material_override = ExtResource("3_kx6l7")
 [node name="PropCube4" parent="Models" unique_id=1223546893 instance=ExtResource("2_jirdo")]
 transform = Transform3D(-0.7071068, 0, -15.627058, 0, 24.783443, 0, 0.70710677, 0, -15.627059, -11, 7, 14)
 material_override = ExtResource("3_kx6l7")
-
-[node name="re" parent="Models" unique_id=970582634 instance=ExtResource("4_n46q3")]
-transform = Transform3D(36.745, 0, 0, 0, 36.745, 0, 0, 0, 36.745, 0, -36.821777, 0)
-
-[node name="PropCylinder" parent="Models" unique_id=1657649260 instance=ExtResource("4_n46q3")]
-transform = Transform3D(22.800001, 0, 0, 0, 22.800001, 0, 0, 0, 22.800001, 0, -22, 19)
-material_override = ExtResource("5_n46q3")
-
-[node name="PropCube6" parent="Models" unique_id=2000859607 instance=ExtResource("2_jirdo")]
-transform = Transform3D(31.680002, 0, 0, 0, 12.21, 0, 0, 0, 35.2, 0, -6, -26)
-
-[node name="PropCube9" parent="Models" unique_id=1918678691 instance=ExtResource("2_jirdo")]
-transform = Transform3D(31.680002, 0, 0, 0, 12.21, 0, 0, 0, 35.2, 0, -6, -60)
 
 [node name="PropCube12" parent="Models" unique_id=1318632679 instance=ExtResource("2_jirdo")]
 transform = Transform3D(1.6701434, 0, 0, 0, 1.6701434, 0, 0, 0, 1.6701434, -0.035532594, 1.3000021, 9.987402)

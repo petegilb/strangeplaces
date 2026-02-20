@@ -2,9 +2,24 @@
 
 [ext_resource type="Script" uid="uid://byvls8qhcn78f" path="res://core/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bd4lrkks26ju0" path="res://levels/level_1.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cnqjxsp3f3rqd" path="res://core/npc/npc.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b7ehppqsck0v" path="res://core/player/player.tscn" id="4_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://dcfoaj50mew34" path="res://assets/sounds/Strange Places Theme 1.mp3" id="5_lquwl"]
 
-[node name="Main" type="Node3D" unique_id=602438174]
+[node name="Main" type="Node3D" unique_id=602438174 node_paths=PackedStringArray("player")]
 script = ExtResource("1_0xm2m")
+player = NodePath("Character")
 
 [node name="Level1" parent="." unique_id=1819692769 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032846928, 0.004449606, -0.0045642853)
+
+[node name="Npc" parent="." unique_id=82143838 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 5)
+
+[node name="Character" parent="." unique_id=62456673 instance=ExtResource("4_1bvp3")]
+transform = Transform3D(-1, 0, 8.742279e-08, 0, 1, 0, -8.742279e-08, 0, -1, 0, 0, 0)
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=117448164]
+stream = ExtResource("5_lquwl")
+volume_db = -13.653
+autoplay = true

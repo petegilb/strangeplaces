@@ -5,7 +5,7 @@
 # COPYRIGHT Colormatic Studios
 # MIT license
 
-
+class_name Player
 extends CharacterBody3D
 
 
@@ -179,9 +179,11 @@ func _physics_process(delta): # Most things happen here.
 		
 	if Dialogic.current_timeline != null:
 		immobile = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		# this is a temp solution but it should work for this game jam game.
 		immobile = false
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	check_interaction()
 	
@@ -490,13 +492,14 @@ func update_camera_fov():
 func handle_pausing():
 	if Input.is_action_just_pressed(controls.PAUSE):
 		# You may want another node to handle pausing, because this player may get paused too.
-		match Input.mouse_mode:
-			Input.MOUSE_MODE_CAPTURED:
-				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-				#get_tree().paused = false
-			Input.MOUSE_MODE_VISIBLE:
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-				#get_tree().paused = false
+		get_tree().quit()
+		#match Input.mouse_mode:
+			#Input.MOUSE_MODE_CAPTURED:
+				#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				##get_tree().paused = false
+			#Input.MOUSE_MODE_VISIBLE:
+				#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				##get_tree().paused = false
 
 #endregion
 

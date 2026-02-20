@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cnqjxsp3f3rqd"]
+
+[ext_resource type="Script" uid="uid://cwwx2pxj6nqfn" path="res://core/npc/npc.gd" id="1_1c1kb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04ddf"]
+albedo_color = Color(1, 0.28235295, 0.3254902, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_04ddf"]
+material = SubResource("StandardMaterial3D_04ddf")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1c1kb"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_04ddf"]
+
+[node name="Npc" type="CharacterBody3D" unique_id=82143838]
+script = ExtResource("1_1c1kb")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1009394275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_04ddf")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=562383921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_1c1kb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=272832275]
+transform = Transform3D(-1.510352e-08, 0.049999982, 0, -0.34552824, -2.1855686e-09, 0, 0, 0, 0.54673994, 0.46572578, 1.5105226, 0)
+mesh = SubResource("CylinderMesh_04ddf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=965121737]
