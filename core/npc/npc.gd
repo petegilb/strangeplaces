@@ -9,7 +9,7 @@ enum NpcState{
 var state: NpcState = NpcState.Idle
 
 # https://docs.godotengine.org/en/latest/tutorials/navigation/navigation_introduction_3d.html
-var movement_speed: float = 2.0
+var movement_speed: float = 1.0
 var movement_target_position: Vector3 = Vector3(-3.0,0.0,2.0)
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
@@ -22,6 +22,7 @@ func _ready():
 
 	# Make sure to not await during _ready.
 	actor_setup.call_deferred()
+	$Collision/kappa_base/AnimationPlayer.play("Walk")
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
@@ -39,6 +40,7 @@ func _physics_process(_delta):
 
 	var current_agent_position: Vector3 = global_position
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
-
+	
+	look_at(next_path_position)
 	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	move_and_slide()
