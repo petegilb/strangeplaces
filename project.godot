@@ -28,7 +28,9 @@ Dialogic="*uid://ds2q0uclmolvu"
 directories/dch_directory={}
 directories/dtl_directory={
 "Continue Test": "res://dialogic/Continue Test.dtl",
+"auctionstart": "res://dialogic/auctionstart.dtl",
 "jump test": "res://dialogic/jump test.dtl",
+"nothing": "res://dialogic/nothing.dtl",
 "timeline": "res://dialogic/timeline.dtl",
 "timeline test": "res://dialogic/timeline test.dtl"
 }
@@ -78,6 +80,10 @@ choices/hotkey_behaviour=1
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/prototype_mini_bundle/plugin.cfg")
+
+[global_group]
+
+player=""
 
 [input]
 

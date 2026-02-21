@@ -7,6 +7,7 @@ enum NpcState{
 }
 
 var state: NpcState = NpcState.Idle
+var next_dialogue_timeline = "nothing"
 
 # https://docs.godotengine.org/en/latest/tutorials/navigation/navigation_introduction_3d.html
 var movement_speed: float = 1.0
@@ -34,21 +35,24 @@ func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(_delta):
+	handle_anims()
 	if navigation_agent.is_navigation_finished():
 		return
 
 	var current_agent_position: Vector3 = global_position
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 	
-	if next_path_position != position:
+	if not position.is_equal_approx(next_path_position):
 		look_at(next_path_position)
 	
 	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	move_and_slide()
-	handle_anims()
 	
 func handle_anims() -> void:
-	if position.distance_squared_to(movement_target_position) < .5:
+	if navigation_agent.is_navigation_finished():
 		$AnimationTree.set("parameters/WalkTransition/transition_request", "Idle")
 	else:
 		$AnimationTree.set("parameters/WalkTransition/transition_request", "Walk")
+
+func get_dialogue() -> String:
+	return next_dialogue_timeline

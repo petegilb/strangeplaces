@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c5hkhu8upxsf7" path="res://addons/prototype_mini_bundle/prop_cylinder.tscn" id="4_n46q3"]
 [ext_resource type="Material" uid="uid://7to3kb1tisdd" path="res://addons/prototype_mini_bundle/M_prototype_orange.tres" id="5_n46q3"]
 [ext_resource type="Material" uid="uid://brj2jayoo0l0d" path="res://addons/prototype_mini_bundle/M_prototype_blue.tres" id="7_gwceb"]
+[ext_resource type="PackedScene" uid="uid://cnqjxsp3f3rqd" path="res://core/npc/npc.tscn" id="7_l53as"]
+[ext_resource type="PackedScene" uid="uid://b7ehppqsck0v" path="res://core/player/player.tscn" id="8_3sk1a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vn7o3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -30,6 +32,12 @@ vertices = PackedVector3Array(-14.872499, 0.18322754, 22.400002, -11.372499, 0.1
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 8), PackedInt32Array(5, 8, 7), PackedInt32Array(5, 7, 6), PackedInt32Array(11, 10, 9), PackedInt32Array(14, 13, 12), PackedInt32Array(15, 11, 8), PackedInt32Array(8, 11, 16), PackedInt32Array(8, 16, 7), PackedInt32Array(17, 0, 18), PackedInt32Array(19, 2, 0), PackedInt32Array(11, 9, 16), PackedInt32Array(6, 12, 5), PackedInt32Array(5, 12, 21), PackedInt32Array(5, 21, 20), PackedInt32Array(14, 12, 17), PackedInt32Array(17, 12, 0), PackedInt32Array(0, 12, 19), PackedInt32Array(19, 12, 6), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(25, 22, 26), PackedInt32Array(28, 27, 29), PackedInt32Array(29, 27, 30), PackedInt32Array(32, 31, 33), PackedInt32Array(33, 31, 26), PackedInt32Array(27, 34, 30), PackedInt32Array(30, 34, 22), PackedInt32Array(22, 34, 26), PackedInt32Array(26, 34, 33), PackedInt32Array(27, 35, 34), PackedInt32Array(22, 36, 30), PackedInt32Array(38, 37, 34), PackedInt32Array(34, 37, 33)]
 
 [node name="Level1" type="Node3D" unique_id=1819692769]
+
+[node name="Npc" parent="." unique_id=82143838 instance=ExtResource("7_l53as")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 5)
+
+[node name="Character" parent="." unique_id=62456673 instance=ExtResource("8_3sk1a")]
+transform = Transform3D(-1, 0, 8.742279e-08, 0, 1, 0, -8.742279e-08, 0, -1, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=616372685]
 environment = SubResource("Environment_bt44k")

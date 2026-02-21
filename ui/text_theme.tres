@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://7nu4u8a58kmf"]
+
+[ext_resource type="FontVariation" uid="uid://baisgv3vxy8i7" path="res://assets/fonts/nationalpark-regular.tres" id="1_1un81"]
+
+[resource]
+default_font = ExtResource("1_1un81")
+default_font_size = 16

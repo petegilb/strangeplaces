@@ -2,24 +2,43 @@
 
 [ext_resource type="Script" uid="uid://byvls8qhcn78f" path="res://core/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bd4lrkks26ju0" path="res://levels/level_1.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://cnqjxsp3f3rqd" path="res://core/npc/npc.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://b7ehppqsck0v" path="res://core/player/player.tscn" id="4_1bvp3"]
+[ext_resource type="Theme" uid="uid://7nu4u8a58kmf" path="res://ui/text_theme.tres" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://dcfoaj50mew34" path="res://assets/sounds/Strange Places Theme 1.mp3" id="5_lquwl"]
 
-[node name="Main" type="Node3D" unique_id=602438174 node_paths=PackedStringArray("player")]
+[node name="Main" type="Node3D" unique_id=602438174]
 script = ExtResource("1_0xm2m")
-player = NodePath("Character")
 
 [node name="Level1" parent="." unique_id=1819692769 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032846928, 0.004449606, -0.0045642853)
-
-[node name="Npc" parent="." unique_id=82143838 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 5)
-
-[node name="Character" parent="." unique_id=62456673 instance=ExtResource("4_1bvp3")]
-transform = Transform3D(-1, 0, 8.742279e-08, 0, 1, 0, -8.742279e-08, 0, -1, 0, 0, 0)
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=117448164]
 stream = ExtResource("5_lquwl")
 volume_db = -13.653
 autoplay = true
+
+[node name="GlobalUI" type="Control" parent="." unique_id=1612824095]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TimerLabel" type="Label" parent="GlobalUI" unique_id=4199465]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 36.0
+offset_right = 67.5
+offset_bottom = 99.0
+grow_horizontal = 2
+theme = ExtResource("4_1bvp3")
+theme_override_font_sizes/font_size = 52
+text = "0 Min"
+
+[node name="AuctionTimer" type="Timer" parent="." unique_id=1596207466]
+
+[connection signal="timeout" from="AuctionTimer" to="." method="_on_auction_timer_timeout"]

@@ -510,13 +510,15 @@ func check_interaction():
 		var collider: Node3D = $Head/Camera/InteractShapeCast.get_collider(0)
 		if Input.is_action_just_pressed("interact"):
 			print("Interacted here with %s", collider.name)
-			# This is where we should activate dialogue timelines
-			activate_dialogue("timeline test")
+			if collider.has_method("get_dialogue"):
+				activate_dialogue(collider.get_dialogue())
+			else:
+				activate_dialogue("timeline test")
 	else:
 		$UserInterface/TalkLabel.hide()
 
-func activate_dialogue(timeline_name: String) -> Node:
-	if Dialogic.current_timeline != null:
+func activate_dialogue(timeline_name: String, force=false) -> Node:
+	if Dialogic.current_timeline != null and not force:
 		return null
 	return Dialogic.start(timeline_name)
 
