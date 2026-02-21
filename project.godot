@@ -22,15 +22,20 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+Global="*uid://b8vkefiydcueq"
 
 [dialogic]
 
 directories/dch_directory={}
 directories/dtl_directory={
 "Continue Test": "res://dialogic/Continue Test.dtl",
+"Random NPC Dialogue 2": "res://dialogic/Random NPC Dialogue 2.dtl",
+"Random NPC Dialogue 3": "res://dialogic/Random NPC Dialogue 3.dtl",
+"Random NPC Dialogue 4": "res://dialogic/Random NPC Dialogue 4.dtl",
 "auctionstart": "res://dialogic/auctionstart.dtl",
 "jump test": "res://dialogic/jump test.dtl",
 "nothing": "res://dialogic/nothing.dtl",
+"placebet": "res://dialogic/placebet.dtl",
 "timeline": "res://dialogic/timeline.dtl",
 "timeline test": "res://dialogic/timeline test.dtl"
 }
@@ -41,7 +46,9 @@ layout/style_directory={
 layout/style_list=["res://dialogic/visual_novel_style.tres"]
 layout/default_style="res://dialogic/visual_novel_style.tres"
 glossary/default_case_sensitive=true
-variables={}
+variables={
+"bet": 0
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -85,6 +92,8 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/prot
 [global_group]
 
 player=""
+npc=""
+main=""
 
 [input]
 

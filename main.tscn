@@ -5,8 +5,9 @@
 [ext_resource type="Theme" uid="uid://7nu4u8a58kmf" path="res://ui/text_theme.tres" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://dcfoaj50mew34" path="res://assets/sounds/Strange Places Theme 1.mp3" id="5_lquwl"]
 
-[node name="Main" type="Node3D" unique_id=602438174]
+[node name="Main" type="Node3D" unique_id=602438174 groups=["main"]]
 script = ExtResource("1_0xm2m")
+before_auction_time = 3
 
 [node name="Level1" parent="." unique_id=1819692769 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032846928, 0.004449606, -0.0045642853)

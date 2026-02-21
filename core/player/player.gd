@@ -35,6 +35,9 @@ extends CharacterBody3D
 ## The reticle file to import at runtime. By default are in res://addons/fpc/reticles/. Set to an empty string to remove.
 @export_file var default_reticle
 
+@export var default_bet_amount : int = 5
+@export var default_money_amount: int = 100
+
 #endregion
 
 #region Nodes Export Group
@@ -138,6 +141,11 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 # Stores mouse input for rotating the camera in the physics process
 var mouseInput : Vector2 = Vector2(0,0)
 
+# bet
+var bet_value: float = 0.0
+var money: int = default_money_amount
+var bet: int = 0
+
 #endregion
 
 
@@ -161,7 +169,9 @@ func _ready():
 	
 	if OS.get_name() == "Web":
 		Input.set_use_accumulated_input(false)
-
+		
+	$UserInterface/ProgressBar.hide()
+	$UserInterface/BetLabel.hide()
 
 func _process(_delta):
 	if pausing_enabled:
@@ -186,6 +196,7 @@ func _physics_process(delta): # Most things happen here.
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	check_interaction()
+	handle_bet()
 	
 	handle_jumping()
 
@@ -505,7 +516,7 @@ func handle_pausing():
 
 #region strangeplaces
 func check_interaction():
-	if $Head/Camera/InteractShapeCast.is_colliding():
+	if $Head/Camera/InteractShapeCast.is_colliding() and Dialogic.current_timeline == null:
 		$UserInterface/TalkLabel.show()
 		var collider: Node3D = $Head/Camera/InteractShapeCast.get_collider(0)
 		if Input.is_action_just_pressed("interact"):
@@ -516,10 +527,48 @@ func check_interaction():
 				activate_dialogue("timeline test")
 	else:
 		$UserInterface/TalkLabel.hide()
+		
+
 
 func activate_dialogue(timeline_name: String, force=false) -> Node:
 	if Dialogic.current_timeline != null and not force:
 		return null
 	return Dialogic.start(timeline_name)
+	
+func auction_started():
+	activate_dialogue("auctionstart", true)
+	jumping_enabled = false
+
+func handle_bet() -> void:
+	$UserInterface/MoneyLabel.text = "$%d" % money
+	$UserInterface/BetLabel.text = "Bet: $%d" % bet
+	if Global.get_game_state() != Main.GameState.AuctionStarted:
+		return
+	if Dialogic.current_timeline != null:
+		return
+	if Input.is_action_just_released(controls.JUMP):
+		bet_value += default_bet_amount
+	$UserInterface/BetLabel.show()	
+	$UserInterface/ProgressBar.show()
+	$UserInterface/ProgressBar.value = bet_value
+	if bet_value >= 100.0:
+		# TODO handle if the player has no money
+		initiate_bet()
+		bet_value = 0.0
+
+func initiate_bet():
+	$UserInterface/ProgressBar.hide()
+	print("it's betting time!!!")
+	activate_dialogue("placebet", true)
+	
+func check_bet():
+	var check: int = Dialogic.VAR.bet
+	if check <= money:
+		money -= check
+		bet = check
+		print("Placing bet of %d" % check)
+	else: # failed bc the player doesn't have enough money so reinitiate dialogue
+		Dialogic.VAR.bet = -1
+		activate_dialogue("placebet", true)
 
 #endregion
