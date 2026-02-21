@@ -32,7 +32,8 @@ script = ExtResource("2_2ikul")
 scene = ExtResource("6_1ei04")
 overrides = {
 "typing_sounds_every_nths_character": "5.0",
-"typing_sounds_mode": "1"
+"typing_sounds_mode": "1",
+"typing_sounds_sounds_folder": "\"res://assets/dialogue_sounds\""
 }
 
 [sub_resource type="Resource" id="Resource_xaxck"]
@@ -65,4 +66,4 @@ layer_info = {
 "16": SubResource("Resource_1p2gx"),
 "17": SubResource("Resource_qvcdq")
 }
-metadata/_latest_layer = "13"
+metadata/_latest_layer = ""

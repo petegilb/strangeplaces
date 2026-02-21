@@ -35,6 +35,7 @@ func start_auction_countdown() -> void:
 func start_auction() -> void:
 	print("The Auction is starting!")
 	player.activate_dialogue("auctionstart", true)
+	state = GameState.AuctionStarted
 
 func _on_auction_timer_timeout() -> void:
 	if state == GameState.AuctionCountdown:

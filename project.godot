@@ -76,6 +76,7 @@ audio/channel_defaults={
 }
 }
 choices/hotkey_behaviour=1
+glossary/glossary_files=["uid://d10y4wuhbq8dh"]
 
 [editor_plugins]
 

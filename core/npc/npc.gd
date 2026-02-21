@@ -7,7 +7,7 @@ enum NpcState{
 }
 
 var state: NpcState = NpcState.Idle
-var next_dialogue_timeline = "nothing"
+@export var next_dialogue_timeline = "nothing"
 
 # https://docs.godotengine.org/en/latest/tutorials/navigation/navigation_introduction_3d.html
 var movement_speed: float = 1.0

@@ -1,4 +1,5 @@
-test [font="res\://assets/fonts/stray.ttf"]TEST[/font] text!
+test [font="res\://assets/fonts/stray.ttf"]FFXFFTI[/font] text!
 - Yes
 - No
-nice!
+nice! FF
+audio "res://assets/sounds/Coin increase.wav"
