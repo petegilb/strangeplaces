@@ -1,0 +1,5 @@
+if {bet} == -1.0:
+	You don't have enough money to bet that much!
+We have a taker! How much will you bet?
+[text_input text="How much will you bet?" var="bet" placeholder="100"]
+[signal arg="placebet"]

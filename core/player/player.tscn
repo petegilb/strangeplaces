@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://u5u7xxlvmcxx" path="res://addons/fpc/debug.gd" id="2_qjudb"]
 [ext_resource type="FontVariation" uid="uid://baisgv3vxy8i7" path="res://assets/fonts/nationalpark-regular.tres" id="3_qjudb"]
 [ext_resource type="Script" uid="uid://dgfl3skp075ft" path="res://addons/fpc/EditorModule.gd" id="3_xttum"]
+[ext_resource type="Theme" uid="uid://7nu4u8a58kmf" path="res://ui/text_theme.tres" id="4_xttum"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.909804, 0.596078, 0, 1)
@@ -386,6 +387,30 @@ MarginContainer/constants/margin_top = 10
 font = ExtResource("3_qjudb")
 font_size = 36
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjudb"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.17, 0.17, 0.17, 0.90588236)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xttum"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0.93999994, 0.27999997, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
 
 [node name="Character" type="CharacterBody3D" unique_id=62456673 node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH") groups=["player"]]
@@ -484,6 +509,63 @@ grow_vertical = 2
 text = "Talk"
 label_settings = SubResource("LabelSettings_ll17t")
 horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="UserInterface" unique_id=1303755561]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = 83.0
+offset_right = 130.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_qjudb")
+theme_override_styles/background = SubResource("StyleBoxFlat_qjudb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xttum")
+value = 33.0
+rounded = true
+show_percentage = false
+
+[node name="ProgressBarLabel" type="Label" parent="UserInterface/ProgressBar" unique_id=2052770897]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = 21.5
+offset_right = 70.0
+offset_bottom = 44.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_xttum")
+text = "Bet (Space)"
+horizontal_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="UserInterface" unique_id=1258999095]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 177.0
+offset_bottom = 47.0
+theme = ExtResource("4_xttum")
+theme_override_font_sizes/font_size = 24
+text = "Money"
+
+[node name="BetLabel" type="Label" parent="UserInterface" unique_id=665524422]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 53.0
+offset_right = 177.0
+offset_bottom = 85.0
+theme = ExtResource("4_xttum")
+theme_override_font_sizes/font_size = 24
+text = "Bet"
 
 [node name="CrouchCeilingDetection" type="ShapeCast3D" parent="." unique_id=1539373016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
