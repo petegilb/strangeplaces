@@ -37,6 +37,7 @@ extends CharacterBody3D
 
 @export var default_bet_amount : int = 5
 @export var default_money_amount: int = 100
+@export var bet_bar_decrease_amount: int = 5
 
 #endregion
 
@@ -142,7 +143,7 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 var mouseInput : Vector2 = Vector2(0,0)
 
 # bet
-var bet_value: float = 0.0
+var bet_bar_value: float = 0.0
 var money: int = default_money_amount
 var bet: int = 0
 
@@ -172,6 +173,8 @@ func _ready():
 		
 	$UserInterface/ProgressBar.hide()
 	$UserInterface/BetLabel.hide()
+	
+	activate_dialogue("intro", true)
 
 func _process(_delta):
 	if pausing_enabled:
@@ -196,7 +199,7 @@ func _physics_process(delta): # Most things happen here.
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	check_interaction()
-	handle_bet()
+	handle_bet(delta)
 	
 	handle_jumping()
 
@@ -527,8 +530,6 @@ func check_interaction():
 				activate_dialogue("timeline test")
 	else:
 		$UserInterface/TalkLabel.hide()
-		
-
 
 func activate_dialogue(timeline_name: String, force=false) -> Node:
 	if Dialogic.current_timeline != null and not force:
@@ -539,22 +540,25 @@ func auction_started():
 	activate_dialogue("auctionstart", true)
 	jumping_enabled = false
 
-func handle_bet() -> void:
+func handle_bet(delta: float) -> void:
 	$UserInterface/MoneyLabel.text = "$%d" % money
 	$UserInterface/BetLabel.text = "Bet: $%d" % bet
 	if Global.get_game_state() != Main.GameState.AuctionStarted:
 		return
 	if Dialogic.current_timeline != null:
 		return
-	if Input.is_action_just_released(controls.JUMP):
-		bet_value += default_bet_amount
+	if Input.is_action_just_pressed(controls.JUMP):
+		bet_bar_value += default_bet_amount
 	$UserInterface/BetLabel.show()	
 	$UserInterface/ProgressBar.show()
-	$UserInterface/ProgressBar.value = bet_value
-	if bet_value >= 100.0:
+	$UserInterface/ProgressBar.value = bet_bar_value
+	if bet_bar_value >= 100.0:
 		# TODO handle if the player has no money
 		initiate_bet()
-		bet_value = 0.0
+		bet_bar_value = 0.0
+	else:
+		bet_bar_value -= bet_bar_decrease_amount * delta
+		clampf(bet_bar_value, 0.0, 100.0)
 
 func initiate_bet():
 	$UserInterface/ProgressBar.hide()
@@ -562,8 +566,8 @@ func initiate_bet():
 	activate_dialogue("placebet", true)
 	
 func check_bet():
-	var check: int = Dialogic.VAR.bet
-	if check <= money:
+	var check: int = Dialogic.VAR.bet if Dialogic.VAR.bet is int or Dialogic.VAR.bet is float else -1
+	if check <= money and check > 0:
 		money -= check
 		bet = check
 		print("Placing bet of %d" % check)

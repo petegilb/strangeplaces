@@ -12,7 +12,7 @@ var state: NpcState = NpcState.Idle
 
 # https://docs.godotengine.org/en/latest/tutorials/navigation/navigation_introduction_3d.html
 var movement_speed: float = 1.0
-var movement_target_position: Vector3 = Vector3(-3.0,0.0,2.0)
+var movement_target_position: Vector3 = Vector3()
 var auction_look_target: Vector3 = Vector3(0, 0, 10)
 var look_target: Vector3 = Vector3()
 
@@ -32,7 +32,7 @@ func actor_setup():
 	await get_tree().physics_frame
 
 	# Now that the navigation map is no longer empty, set the movement target.
-	set_movement_target(movement_target_position)
+	#set_movement_target(movement_target_position)
 
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)

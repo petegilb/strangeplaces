@@ -47,6 +47,7 @@ directories/dtl_directory={
 "W_Room Dialogue 4": "res://dialogic/Waiting Room/W_Room Dialogue 4.dtl",
 "W_Room Dialogue 5": "res://dialogic/Waiting Room/W_Room Dialogue 5.dtl",
 "auctionstart": "res://dialogic/auctionstart.dtl",
+"intro": "res://dialogic/intro.dtl",
 "jump test": "res://dialogic/jump test.dtl",
 "nothing": "res://dialogic/nothing.dtl",
 "placebet": "res://dialogic/placebet.dtl",

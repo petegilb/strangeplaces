@@ -29,23 +29,27 @@ func _process(_delta: float) -> void:
 		$GlobalUI/TimerLabel.show()
 		$GlobalUI/TimerLabel.text = "%d Min" % int($AuctionTimer.time_left)
 	
-
 func start_auction_countdown() -> void:
+	if state != GameState.BeforeAuction:
+		return
 	print("Auction Countdown Starting!!!")
 	state = GameState.AuctionCountdown
 	$AuctionTimer.start(before_auction_time)
-		
+
+func _on_auction_timer_timeout() -> void:
+	if state == GameState.AuctionCountdown:
+		start_auction()
+	$AuctionTimer.stop()
+	
 func start_auction() -> void:
 	print("The Auction is starting!")
 	player.auction_started()
 	state = GameState.AuctionStarted
 	for npc in get_tree().get_nodes_in_group("npc"):
 		npc.auction_started()
-
-func _on_auction_timer_timeout() -> void:
-	if state == GameState.AuctionCountdown:
-		start_auction()
-	$AuctionTimer.stop()
+	var tween = get_tree().create_tween()
+	var final_position = $Level1/Models/RoomDoor.position + Vector3(0, 6, 0)
+	tween.tween_property($Level1/Models/RoomDoor, "position", final_position, 3.0)
 
 #func _physics_process(_delta: float) -> void:
 	#await get_tree().create_timer(1.0).timeout

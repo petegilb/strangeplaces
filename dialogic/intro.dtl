@@ -1,0 +1,14 @@
+Are you here for the auction?
+- Huh? I can't understand you.
+	If you can't understand me then how are you gonna buy stuff at the auction?
+	jump AuctionStart
+- Uh...
+	The quiet type huh...
+If you are at the auction, then it means you must be here to win something cool.
+We've got treasures from many different worlds. I'll be selling some of the human souls I stole. Hehehe.
+...
+Don't look at me like that.
+label AuctionStart
+Anyways...
+The auction starts in about 20 minutes. Make yourself at home.
+[signal arg="StartAuction"]

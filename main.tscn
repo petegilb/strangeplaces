@@ -7,7 +7,6 @@
 
 [node name="Main" type="Node3D" unique_id=602438174 groups=["main"]]
 script = ExtResource("1_0xm2m")
-before_auction_time = 3
 
 [node name="Level1" parent="." unique_id=1819692769 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032846928, 0.004449606, -0.0045642853)
@@ -15,7 +14,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032846928, 0.004449606, -0
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=117448164]
 stream = ExtResource("5_lquwl")
 volume_db = -16.363
-autoplay = true
 
 [node name="GlobalUI" type="Control" parent="." unique_id=1612824095]
 layout_mode = 3
