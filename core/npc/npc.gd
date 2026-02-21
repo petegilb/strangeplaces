@@ -22,7 +22,6 @@ func _ready():
 
 	# Make sure to not await during _ready.
 	actor_setup.call_deferred()
-	$Collision/kappa_base/AnimationPlayer.play("Walk")
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
@@ -41,6 +40,15 @@ func _physics_process(_delta):
 	var current_agent_position: Vector3 = global_position
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 	
-	look_at(next_path_position)
+	if next_path_position != position:
+		look_at(next_path_position)
+	
 	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	move_and_slide()
+	handle_anims()
+	
+func handle_anims() -> void:
+	if position.distance_squared_to(movement_target_position) < .5:
+		$AnimationTree.set("parameters/WalkTransition/transition_request", "Idle")
+	else:
+		$AnimationTree.set("parameters/WalkTransition/transition_request", "Walk")
