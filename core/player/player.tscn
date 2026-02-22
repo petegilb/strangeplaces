@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dkhqwwvmthb4b" path="res://core/player/player.gd" id="1_ll17t"]
 [ext_resource type="Script" uid="uid://u5u7xxlvmcxx" path="res://addons/fpc/debug.gd" id="2_qjudb"]
+[ext_resource type="AudioStream" uid="uid://cmny3boh0rltt" path="res://assets/sounds update/Strange Places Footstep 2 .ogg" id="3_krwir"]
 [ext_resource type="FontVariation" uid="uid://baisgv3vxy8i7" path="res://assets/fonts/nationalpark-regular.tres" id="3_qjudb"]
 [ext_resource type="Script" uid="uid://dgfl3skp075ft" path="res://addons/fpc/EditorModule.gd" id="3_xttum"]
 [ext_resource type="Theme" uid="uid://7nu4u8a58kmf" path="res://ui/text_theme.tres" id="4_xttum"]
+[ext_resource type="AudioStream" uid="uid://da47aq4k1fti" path="res://assets/sounds update/Strange Places Footstep 1 .ogg" id="6_e7l0y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.909804, 0.596078, 0, 1)
@@ -206,6 +208,25 @@ tracks/1/keys = {
 "points": PackedFloat32Array(0.05, -0.25, 0, 0.2, -0.01, 0, -0.2, 0.000186046, 0.2, 0.000186046, 0.05, -0.2, -0.01, 0.2, -0.01, 0, -0.2, 0, 0.2, 0, 0.05, -0.2, -0.01, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Footstep")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_e7l0y")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_krwir")
+}],
+"times": PackedFloat32Array(0, 0.96666664)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_lrqmv"]
 resource_name = "walk"
@@ -233,6 +254,25 @@ tracks/1/keys = {
 "points": PackedFloat32Array(-0.05, -0.25, 0, 0.2, 0.005, 0, -0.2, 0.000186046, 0.2, 0.000186046, -0.05, -0.2, 0.005, 0.2, 0.005, 0, -0.2, 0, 0.2, 0, -0.05, -0.2, 0.005, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Footstep")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_e7l0y")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_krwir")
+}],
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o0unb"]
 _data = {
@@ -416,7 +456,19 @@ corner_detail = 6
 [node name="Character" type="CharacterBody3D" unique_id=62456673 node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH") groups=["player"]]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_ll17t")
+base_speed = null
+sprint_speed = null
+crouch_speed = null
+acceleration = null
+jump_velocity = null
+mouse_sensitivity = null
+invert_camera_x_axis = null
+invert_camera_y_axis = null
+immobile = null
 default_reticle = "uid://coqpusufa8a6k"
+default_bet_amount = null
+default_money_amount = null
+bet_bar_decrease_amount = null
 HEAD = NodePath("Head")
 CAMERA = NodePath("Head/Camera")
 HEADBOB_ANIMATION = NodePath("Head/HeadbobAnimation")
@@ -433,6 +485,23 @@ controls = {
 &"RIGHT": "right",
 &"SPRINT": "sprint"
 }
+controller_support = null
+controller_controls = null
+look_sensitivity = null
+jumping_enabled = null
+in_air_momentum = null
+motion_smoothing = null
+sprint_enabled = null
+sprint_mode = null
+crouch_enabled = null
+crouch_mode = null
+dynamic_fov = null
+continuous_jumping = null
+view_bobbing = null
+jump_animation = null
+pausing_enabled = null
+gravity_enabled = null
+dynamic_gravity = null
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1197750677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -442,6 +511,9 @@ mesh = SubResource("CapsuleMesh_jw1de")
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=170086955]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_uy03j")
+
+[node name="Footstep" type="AudioStreamPlayer" parent="." unique_id=1982819507]
+volume_db = -13.0
 
 [node name="CrouchAnimation" type="AnimationPlayer" parent="." unique_id=1625389568]
 libraries/ = SubResource("AnimationLibrary_5e5t5")

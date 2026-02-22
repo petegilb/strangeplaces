@@ -543,7 +543,7 @@ func auction_started():
 func handle_bet(delta: float) -> void:
 	$UserInterface/MoneyLabel.text = "$%d" % money
 	$UserInterface/BetLabel.text = "Bet: $%d" % bet
-	if Global.get_game_state() != Main.GameState.AuctionStarted:
+	if Global.get_game_state() != Main.GameState.AuctionBidding:
 		return
 	if Dialogic.current_timeline != null:
 		return

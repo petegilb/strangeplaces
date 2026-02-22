@@ -11,7 +11,7 @@ var state: NpcState = NpcState.Idle
 @export var auction_location: Node3D = null
 
 # https://docs.godotengine.org/en/latest/tutorials/navigation/navigation_introduction_3d.html
-var movement_speed: float = 1.0
+var movement_speed: float = 50.0
 var movement_target_position: Vector3 = Vector3()
 var auction_look_target: Vector3 = Vector3(0, 0, 10)
 var look_target: Vector3 = Vector3()

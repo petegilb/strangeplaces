@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://7to3kb1tisdd" path="res://addons/prototype_mini_bundle/M_prototype_orange.tres" id="5_n46q3"]
 [ext_resource type="PackedScene" uid="uid://cnqjxsp3f3rqd" path="res://core/npc/npc.tscn" id="7_l53as"]
 [ext_resource type="PackedScene" uid="uid://b7ehppqsck0v" path="res://core/player/player.tscn" id="8_3sk1a"]
+[ext_resource type="AudioStream" uid="uid://ceyi1pdmxm0lj" path="res://assets/sounds update/Strange Places Door Open.ogg" id="9_3sk1a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vn7o3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -62,12 +63,16 @@ dialogue_timeline_list = Array[String](["W_Room Dialogue 1", "Random NPC Dialogu
 auction_location = NodePath("../AuctionNPCLocations/NpcTarget5")
 
 [node name="AuctionLeader" parent="." unique_id=1219766219 instance=ExtResource("7_l53as")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4896156, 0.8436792, 0.8526548)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2396156, 0.8436792, 0.85265493)
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="." unique_id=1769810911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -19)
+stream = ExtResource("9_3sk1a")
 
 [node name="AuctionNPCLocations" type="Node" parent="." unique_id=2022763449]
 
 [node name="NpcTarget1" parent="AuctionNPCLocations" unique_id=402598410 instance=ExtResource("3_l53as")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029444218, 0.2643113, -2.9184508)
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 3.2205558, 0.2643113, -1.6684508)
 
 [node name="NpcTarget2" parent="AuctionNPCLocations" unique_id=1430659639 instance=ExtResource("3_l53as")]
 transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -1.2794442, 0.2643113, -2.612196)

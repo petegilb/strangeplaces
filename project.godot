@@ -50,6 +50,7 @@ directories/dtl_directory={
 "W_Room Dialogue 5": "res://dialogic/Waiting Room/W_Room Dialogue 5.dtl",
 "W_Room Dialogue English Speaking Yokai": "res://dialogic/Waiting Room/W_Room Dialogue English Speaking Yokai.dtl",
 "auctionstart": "res://dialogic/auctionstart.dtl",
+"auctionstart2": "res://dialogic/auctionstart2.dtl",
 "intro": "res://dialogic/intro.dtl",
 "jump test": "res://dialogic/jump test.dtl",
 "nothing": "res://dialogic/nothing.dtl",
