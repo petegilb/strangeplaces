@@ -668,4 +668,8 @@ func modifier_autopauses(text:String) -> String:
 				text = text.insert(result.get_end()+offset, '[pause='+str(_autopauses[i])+']')
 				offset += len('[pause='+str(_autopauses[i])+']')
 	return text
+
+# func modifier_yokai_translator(text:String) -> String:
+# 	var new_text = "yokai!!!"
+# 	return new_text
 #endregion

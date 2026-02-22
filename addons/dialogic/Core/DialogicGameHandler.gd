@@ -156,6 +156,9 @@ var VAR := preload("res://addons/dialogic/Modules/Variable/subsystem_variables.g
 var Voice := preload("res://addons/dialogic/Modules/Voice/subsystem_voice.gd").new():
 	get: return get_subsystem("Voice")
 
+var Yokai := preload("res://addons/dialogic_additions/Yokai/subsystem_yokai.gd").new():
+	get: return get_subsystem("Yokai")
+
 #endregion
 
 
