@@ -14,7 +14,7 @@ var state: NpcState = NpcState.Idle
 @export var fullname: String = "Kappa Kyle"
 
 # https://docs.godotengine.org/en/latest/tutorials/navigation/navigation_introduction_3d.html
-var movement_speed: float = 50.0
+var movement_speed: float = 4.0
 var movement_target_position: Vector3 = Vector3()
 var auction_look_target: Vector3 = Vector3(0, 0, 10)
 var look_target: Vector3 = Vector3()
@@ -77,6 +77,10 @@ func auction_started() -> void:
 		return
 	set_movement_target(auction_location.global_position)
 	state = NpcState.Betting
+	progress_dialogue()
+	
+func auction_ended() -> void:
+	state = NpcState.Idle
 	progress_dialogue()
 	
 func place_bet() -> void:

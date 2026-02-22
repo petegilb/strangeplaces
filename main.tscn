@@ -10,7 +10,7 @@
 script = ExtResource("1_0xm2m")
 waiting_room_song = ExtResource("5_lquwl")
 auction_started_song = ExtResource("3_lquwl")
-before_auction_time = 2
+before_auction_time = 5
 
 [node name="Level1" parent="." unique_id=1819692769 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032846928, 0.004449606, -0.0045642853)
