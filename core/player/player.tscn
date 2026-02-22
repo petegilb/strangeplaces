@@ -451,24 +451,24 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krwir"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.26666668)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
 
 [node name="Character" type="CharacterBody3D" unique_id=62456673 node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH") groups=["player"]]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_ll17t")
-base_speed = null
-sprint_speed = null
-crouch_speed = null
-acceleration = null
-jump_velocity = null
-mouse_sensitivity = null
-invert_camera_x_axis = null
-invert_camera_y_axis = null
-immobile = null
 default_reticle = "uid://coqpusufa8a6k"
-default_bet_amount = null
-default_money_amount = null
-bet_bar_decrease_amount = null
 HEAD = NodePath("Head")
 CAMERA = NodePath("Head/Camera")
 HEADBOB_ANIMATION = NodePath("Head/HeadbobAnimation")
@@ -485,23 +485,6 @@ controls = {
 &"RIGHT": "right",
 &"SPRINT": "sprint"
 }
-controller_support = null
-controller_controls = null
-look_sensitivity = null
-jumping_enabled = null
-in_air_momentum = null
-motion_smoothing = null
-sprint_enabled = null
-sprint_mode = null
-crouch_enabled = null
-crouch_mode = null
-dynamic_fov = null
-continuous_jumping = null
-view_bobbing = null
-jump_animation = null
-pausing_enabled = null
-gravity_enabled = null
-dynamic_gravity = null
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1197750677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -637,12 +620,42 @@ offset_right = 177.0
 offset_bottom = 85.0
 theme = ExtResource("4_xttum")
 theme_override_font_sizes/font_size = 24
-text = "Bet"
+text = "Bid"
+
+[node name="Label" type="Label" parent="UserInterface" unique_id=45824283]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -161.0
+offset_top = 18.0
+offset_right = -49.0
+offset_bottom = 41.0
+grow_horizontal = 0
+theme = ExtResource("4_xttum")
+text = "Inventory"
+horizontal_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="UserInterface" unique_id=448306392]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -175.0
+offset_top = 45.0
+offset_right = -24.0
+offset_bottom = 189.0
+grow_horizontal = 0
+theme = ExtResource("4_xttum")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_krwir")
+item_count = 1
+item_0/text = "- TEST"
+
+[node name="EditorModule" type="Node" parent="." unique_id=1434823424]
+script = ExtResource("3_xttum")
 
 [node name="CrouchCeilingDetection" type="ShapeCast3D" parent="." unique_id=1539373016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_k4wwl")
 target_position = Vector3(0, 0.5, 0)
-
-[node name="EditorModule" type="Node" parent="." unique_id=1434823424]
-script = ExtResource("3_xttum")

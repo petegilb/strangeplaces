@@ -1,14 +1,17 @@
+class_name Npc
 extends CharacterBody3D
 
 enum NpcState{
 	Idle,
 	Moving,
-	Betting
+	Betting,
+	Stunned
 }
 
 var state: NpcState = NpcState.Idle
 @export var dialogue_timeline_list : Array[String] = ["nothing"]
 @export var auction_location: Node3D = null
+@export var fullname: String = "Kappa Kyle"
 
 # https://docs.godotengine.org/en/latest/tutorials/navigation/navigation_introduction_3d.html
 var movement_speed: float = 50.0
@@ -75,3 +78,19 @@ func auction_started() -> void:
 	set_movement_target(auction_location.global_position)
 	state = NpcState.Betting
 	progress_dialogue()
+	
+func place_bet() -> void:
+	$BetSound.play()
+	var tween = get_tree().create_tween()
+	var initial_rotation = rotation
+	var rotation_half = initial_rotation + Vector3(0, 3, 0)
+	tween.tween_property(self, "rotation", rotation_half, 1.0)
+	tween.tween_property(self, "rotation", initial_rotation, 1.0)
+	# TODO play animation and show particle effect
+	
+func get_stunned() -> void:
+	$StunSound.play()
+	# TODO play animation and show particle effect
+	
+func get_fullname() -> String:
+	return fullname

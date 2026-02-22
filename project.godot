@@ -55,6 +55,7 @@ directories/dtl_directory={
 "W_Room Dialogue English Speaking Yokai": "res://dialogic/Waiting Room/W_Room Dialogue English Speaking Yokai.dtl",
 "auctionstart": "res://dialogic/auctionstart.dtl",
 "auctionstart2": "res://dialogic/auctionstart2.dtl",
+"incorrectbid": "res://dialogic/incorrectbid.dtl",
 "intro": "res://dialogic/intro.dtl",
 "jump test": "res://dialogic/jump test.dtl",
 "nothing": "res://dialogic/nothing.dtl",
@@ -70,7 +71,10 @@ layout/style_list=["res://dialogic/visual_novel_style.tres"]
 layout/default_style="res://dialogic/visual_novel_style.tres"
 glossary/default_case_sensitive=true
 variables={
-"bet": 0
+"bet": 1.0,
+"item": "",
+"winner": "",
+"winningbet": ""
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -117,6 +121,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/prot
 player=""
 npc=""
 main=""
+bidder=""
 
 [input]
 

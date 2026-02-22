@@ -37,32 +37,32 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Arr
 [node name="Character" parent="." unique_id=62456673 instance=ExtResource("8_3sk1a")]
 transform = Transform3D(-1, 0, 8.742279e-08, 0, 1, 0, -8.742279e-08, 0, -1, 0, 0, -29.733105)
 
-[node name="Npc" parent="." unique_id=82143838 node_paths=PackedStringArray("auction_location") instance=ExtResource("7_l53as")]
+[node name="Npc" parent="." unique_id=82143838 node_paths=PackedStringArray("auction_location") groups=["bidder"] instance=ExtResource("7_l53as")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9762483, 0.49091458, -22)
 dialogue_timeline_list = Array[String](["W_Room Dialogue 3 ", "Random NPC Dialogue 3"])
 auction_location = NodePath("../AuctionNPCLocations/NpcTarget1")
 
-[node name="Npc2" parent="." unique_id=1879901776 node_paths=PackedStringArray("auction_location") instance=ExtResource("7_l53as")]
+[node name="Npc2" parent="." unique_id=1879901776 node_paths=PackedStringArray("auction_location") groups=["bidder"] instance=ExtResource("7_l53as")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4710393, 0.49091458, -26)
 dialogue_timeline_list = Array[String](["W_Room Dialogue 4", "Random NPC Dialogue 4"])
 auction_location = NodePath("../AuctionNPCLocations/NpcTarget2")
 
-[node name="Npc3" parent="." unique_id=1335514970 node_paths=PackedStringArray("auction_location") instance=ExtResource("7_l53as")]
+[node name="Npc3" parent="." unique_id=1335514970 node_paths=PackedStringArray("auction_location") groups=["bidder"] instance=ExtResource("7_l53as")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.528015, 0.49091458, -22)
 dialogue_timeline_list = Array[String](["W_Room Dialogue 2", "Random NPC Dialogue 2"])
 auction_location = NodePath("../AuctionNPCLocations/NpcTarget3")
 
-[node name="Npc4" parent="." unique_id=1736111459 node_paths=PackedStringArray("auction_location") instance=ExtResource("7_l53as")]
+[node name="Npc4" parent="." unique_id=1736111459 node_paths=PackedStringArray("auction_location") groups=["bidder"] instance=ExtResource("7_l53as")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024308681, 0.49091458, -28.209923)
 dialogue_timeline_list = Array[String](["W_Room Dialogue 5", "Random NPC Dialogue 5"])
 auction_location = NodePath("../AuctionNPCLocations/NpcTarget4")
 
-[node name="Npc5" parent="." unique_id=1002222654 node_paths=PackedStringArray("auction_location") instance=ExtResource("7_l53as")]
+[node name="Npc5" parent="." unique_id=1002222654 node_paths=PackedStringArray("auction_location") groups=["bidder"] instance=ExtResource("7_l53as")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6538877, 0.49091458, -26.16157)
 dialogue_timeline_list = Array[String](["W_Room Dialogue 1", "Random NPC Dialogue 1"])
 auction_location = NodePath("../AuctionNPCLocations/NpcTarget5")
 
-[node name="AuctionLeader" parent="." unique_id=1219766219 instance=ExtResource("7_l53as")]
+[node name="AuctionLeader" parent="." unique_id=1219766219 groups=["bidder"] instance=ExtResource("7_l53as")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2396156, 0.8436792, 0.85265493)
 
 [node name="DoorOpen" type="AudioStreamPlayer3D" parent="." unique_id=1769810911]

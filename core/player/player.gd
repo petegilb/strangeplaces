@@ -36,7 +36,7 @@ extends CharacterBody3D
 @export_file var default_reticle
 
 @export var default_bet_amount : int = 5
-@export var default_money_amount: int = 100
+@export var default_money_amount: int = 555
 @export var bet_bar_decrease_amount: int = 5
 
 #endregion
@@ -147,6 +147,8 @@ var bet_bar_value: float = 0.0
 var money: int = default_money_amount
 var bet: int = 0
 
+var inventory: Array[String] = []
+
 #endregion
 
 
@@ -200,6 +202,7 @@ func _physics_process(delta): # Most things happen here.
 	
 	check_interaction()
 	handle_bet(delta)
+	handle_inventory()
 	
 	handle_jumping()
 
@@ -519,7 +522,7 @@ func handle_pausing():
 
 #region strangeplaces
 func check_interaction():
-	if $Head/Camera/InteractShapeCast.is_colliding() and Dialogic.current_timeline == null:
+	if $Head/Camera/InteractShapeCast.is_colliding() and Dialogic.current_timeline == null and Global.get_game_state() != Main.GameState.AuctionBidding:
 		$UserInterface/TalkLabel.show()
 		var collider: Node3D = $Head/Camera/InteractShapeCast.get_collider(0)
 		if Input.is_action_just_pressed("interact"):
@@ -542,8 +545,10 @@ func auction_started():
 
 func handle_bet(delta: float) -> void:
 	$UserInterface/MoneyLabel.text = "$%d" % money
-	$UserInterface/BetLabel.text = "Bet: $%d" % bet
+	$UserInterface/BetLabel.text = "Bid: $%d" % Global.get_highest_bid()
 	if Global.get_game_state() != Main.GameState.AuctionBidding:
+		$UserInterface/BetLabel.hide()	
+		$UserInterface/ProgressBar.hide()
 		return
 	if Dialogic.current_timeline != null:
 		return
@@ -560,19 +565,31 @@ func handle_bet(delta: float) -> void:
 		bet_bar_value -= bet_bar_decrease_amount * delta
 		bet_bar_value = clampf(bet_bar_value, 0.0, 100.0)
 
+func handle_inventory() -> void:
+	# simple immediate mode for displaying the ui
+	$UserInterface/ItemList.clear()
+	for item in inventory:
+		$UserInterface/ItemList.add_item("- " + item)
+
 func initiate_bet():
 	$UserInterface/ProgressBar.hide()
 	print("it's betting time!!!")
 	activate_dialogue("placebet", true)
+	Global.pause_timer()
 	
 func check_bet():
 	var check: int = Dialogic.VAR.bet if Dialogic.VAR.bet is int or Dialogic.VAR.bet is float else -1
-	if check <= money and check > 0:
-		money -= check
-		bet = check
+	if check <= money and check > 0 and check > Global.get_highest_bid():
+		#money -= check
+		#bet = check
+		Global.player_place_bet(check)
 		print("Placing bet of %d" % check)
 	else: # failed bc the player doesn't have enough money so reinitiate dialogue
-		Dialogic.VAR.bet = -1
-		activate_dialogue("placebet", true)
-
+		#Dialogic.VAR.bet = -1
+		activate_dialogue("incorrectbid", true)
+	Global.resume_timer()
+		
+func add_item_to_inventory(new_item: String):
+	inventory.append(new_item)
+	
 #endregion
