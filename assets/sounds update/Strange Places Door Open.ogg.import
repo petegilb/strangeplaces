@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ceyi1pdmxm0lj"
+path="res://.godot/imported/Strange Places Door Open.ogg-6dbb9d46a53d79b3f2af17443017136b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds update/Strange Places Door Open.ogg"
+dest_files=["res://.godot/imported/Strange Places Door Open.ogg-6dbb9d46a53d79b3f2af17443017136b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

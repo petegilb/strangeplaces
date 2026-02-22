@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cmny3boh0rltt"
+path="res://.godot/imported/Strange Places Footstep 2 .ogg-7ef093aed4ea061beded07c5937cecf6.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds update/Strange Places Footstep 2 .ogg"
+dest_files=["res://.godot/imported/Strange Places Footstep 2 .ogg-7ef093aed4ea061beded07c5937cecf6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
