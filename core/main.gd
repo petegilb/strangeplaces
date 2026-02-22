@@ -44,6 +44,7 @@ func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	$Music.stream = waiting_room_song
 	$Music.play()
+	$GlobalUI/WinScreen.hide()
 
 func _on_dialogic_signal(argument:String):
 	if argument == "StartAuction":
@@ -54,6 +55,9 @@ func _on_dialogic_signal(argument:String):
 		start_bidding()
 	if argument == "DICTIONARY2":
 		player.add_item_to_inventory("YSD for Dummies Vol.2")
+	if argument == "youwin":
+		$GlobalUI/WinScreen.show()
+		player.immobile = true
 		
 func _process(_delta: float) -> void:
 	if $AuctionTimer.is_stopped():

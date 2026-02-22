@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://yxgjn6q4td3n" path="res://assets/models/Normal Wall Top.glb" id="13_vjtdm"]
 [ext_resource type="PackedScene" uid="uid://dqqdwqdjklhak" path="res://assets/models/Normal Wall.glb" id="14_betor"]
 [ext_resource type="PackedScene" uid="uid://cr4oxj4gqys3f" path="res://assets/models/Wood Floor.glb" id="14_bgw3c"]
+[ext_resource type="PackedScene" uid="uid://jm8t4t42wjes" path="res://core/npc/oni/yokaigamejam_oni_revised.glb" id="17_lrvbd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vn7o3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -41,6 +42,9 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nmsli"]
 size = Vector3(3.906372, 4.899414, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lrvbd"]
+size = Vector3(6.23584, 7.5004883, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lrvbd"]
 lightmap_size_hint = Vector2i(14, 14)
@@ -80,8 +84,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6538877, 0.49091458, -26.1
 dialogue_timeline_list = Array[String](["W_Room Dialogue 1", "Random NPC Dialogue 1", "NPC with Puzzle 4"])
 auction_location = NodePath("../AuctionNPCLocations/NpcTarget5")
 
-[node name="AuctionLeader" parent="." unique_id=1219766219 groups=["bidder"] instance=ExtResource("7_l53as")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2396156, 0.8436792, 0.85265493)
+[node name="AuctionLeader" parent="." unique_id=2000688117 instance=ExtResource("17_lrvbd")]
+transform = Transform3D(-1.8591027, 0, 0.21020757, 0, 1.870949, 0, -0.21020757, 0, -1.8591027, -0.7057603, 0.46092615, 0.78357124)
 
 [node name="DoorOpen" type="AudioStreamPlayer3D" parent="." unique_id=1769810911]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -19)
@@ -596,6 +600,13 @@ light_energy = 2.275
 shadow_enabled = true
 omni_range = 25.0
 
+[node name="Area3D" type="Area3D" parent="." unique_id=1969362570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.44017)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=291817632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4362793, 3.2502441, 0)
+shape = SubResource("BoxShape3D_lrvbd")
+
 [node name="Torii Gate" parent="." unique_id=165334663 instance=ExtResource("10_08mmt")]
 transform = Transform3D(-18.415806, 0, -20.592619, 0, 27.626049, 0, 20.592619, 0, -18.415806, 0, 5.9408016, -35)
 
@@ -607,3 +618,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_bgw3c")
 [node name="RugRound" type="MeshInstance3D" parent="." unique_id=798474859]
 transform = Transform3D(6.735, 0, 0, 0, 1.035, 0, 0, 0, 6.735, 3.0862153, 0.45835567, -1.3838605)
 mesh = ExtResource("13_nmsli")
+
+[connection signal="area_entered" from="Area3D" to="Character" method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="Character" method="_on_area_3d_body_entered"]

@@ -14,6 +14,7 @@ waiting_room_song = ExtResource("2_272bh")
 auction_started_song = ExtResource("3_5vw27")
 auction_ended_song = ExtResource("4_kek77")
 before_auction_time = 60
+bidding_time = 40
 
 [node name="Level1" parent="." unique_id=1819692769 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032846928, 0.004449606, -0.0045642853)
@@ -45,6 +46,26 @@ theme = ExtResource("4_1bvp3")
 theme_override_font_sizes/font_size = 52
 text = "0"
 horizontal_alignment = 1
+
+[node name="WinScreen" type="Label" parent="GlobalUI" unique_id=761374985]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = -102.25
+offset_right = 163.0
+offset_bottom = 102.25
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_1bvp3")
+theme_override_font_sizes/font_size = 35
+text = "You Win!
+Congratulations on escaping from the Yokai Auction!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AuctionTimer" type="Timer" parent="." unique_id=1596207466]
 

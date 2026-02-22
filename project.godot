@@ -60,6 +60,7 @@ directories/dtl_directory={
 "jump test": "res://dialogic/jump test.dtl",
 "nothing": "res://dialogic/nothing.dtl",
 "placebet": "res://dialogic/placebet.dtl",
+"portal": "res://dialogic/portal.dtl",
 "timeline": "res://dialogic/timeline.dtl",
 "timeline test": "res://dialogic/timeline test.dtl"
 }
@@ -73,6 +74,7 @@ glossary/default_case_sensitive=true
 variables={
 "bet": 1.0,
 "item": "",
+"password": "",
 "winner": "",
 "winningbet": ""
 }
@@ -115,6 +117,10 @@ glossary/glossary_files=["uid://d10y4wuhbq8dh"]
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/prototype_mini_bundle/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [global_group]
 

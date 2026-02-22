@@ -607,3 +607,11 @@ func get_dictionaries() -> Array[int]:
 	return result
 	
 #endregion
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	return
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is Player:
+		activate_dialogue("portal", true)
