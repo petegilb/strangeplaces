@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://toqq54fqloi3"
+path="res://.godot/imported/Strange Places Place Bet .ogg-9491dcbb9d655496d68503481fddd407.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds update/Strange Places Place Bet .ogg"
+dest_files=["res://.godot/imported/Strange Places Place Bet .ogg-9491dcbb9d655496d68503481fddd407.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
