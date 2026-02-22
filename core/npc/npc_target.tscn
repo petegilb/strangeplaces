@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://sritmfxfjodq"]
+
+[ext_resource type="Script" uid="uid://d3fxgkffpklw8" path="res://core/npc/npc_target.gd" id="1_qnsyr"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_e3qeb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnsyr"]
+albedo_color = Color(1, 0.35000002, 0.35000002, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qnsyr"]
+
+[node name="NpcTarget" type="Node3D" unique_id=402598410]
+script = ExtResource("1_qnsyr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1075922371]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_e3qeb")
+surface_material_override/0 = SubResource("StandardMaterial3D_qnsyr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=983466726]
+transform = Transform3D(0.34066936, 0, 0, 0, -8.934679e-09, 0.34066936, 0, -0.20440163, -1.4891131e-08, 0, 0, 0.50188506)
+mesh = SubResource("CylinderMesh_qnsyr")

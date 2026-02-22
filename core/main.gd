@@ -9,9 +9,12 @@ enum GameState {
 }
 
 @export var before_auction_time: int = 20
+@export var auction_items: Array[String] = ["Dictionary"]
+
+@onready var player: Player = get_tree().get_nodes_in_group("player")[0] if get_tree().get_nodes_in_group("player")[0] else null
 
 var state: GameState = GameState.BeforeAuction
-@onready var player: Player = get_tree().get_nodes_in_group("player")[0] if get_tree().get_nodes_in_group("player")[0] else null
+var current_item: int = -1
 
 func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)
@@ -50,8 +53,3 @@ func start_auction() -> void:
 	var tween = get_tree().create_tween()
 	var final_position = $Level1/Models/RoomDoor.position + Vector3(0, 6, 0)
 	tween.tween_property($Level1/Models/RoomDoor, "position", final_position, 3.0)
-
-#func _physics_process(_delta: float) -> void:
-	#await get_tree().create_timer(1.0).timeout
-	#if player != null and $Npc != null:
-		#$Npc.set_movement_target(player.position)

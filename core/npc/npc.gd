@@ -7,7 +7,7 @@ enum NpcState{
 }
 
 var state: NpcState = NpcState.Idle
-@export var next_dialogue_timeline = "nothing"
+@export var dialogue_timeline_list : Array[String] = ["nothing"]
 @export var auction_location: Node3D = null
 
 # https://docs.godotengine.org/en/latest/tutorials/navigation/navigation_introduction_3d.html
@@ -15,6 +15,7 @@ var movement_speed: float = 1.0
 var movement_target_position: Vector3 = Vector3()
 var auction_look_target: Vector3 = Vector3(0, 0, 10)
 var look_target: Vector3 = Vector3()
+var current_dialogue_timeline: int = 0
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
@@ -62,8 +63,15 @@ func handle_anims() -> void:
 		$AnimationTree.set("parameters/WalkTransition/transition_request", "Walk")
 
 func get_dialogue() -> String:
-	return next_dialogue_timeline
+	return dialogue_timeline_list[current_dialogue_timeline]
+	
+func progress_dialogue() -> void:
+	current_dialogue_timeline += 1
+	current_dialogue_timeline = clamp(current_dialogue_timeline, 0, len(dialogue_timeline_list)-1)
 	
 func auction_started() -> void:
+	if (auction_location == null):
+		return
 	set_movement_target(auction_location.global_position)
 	state = NpcState.Betting
+	progress_dialogue()

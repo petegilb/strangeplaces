@@ -558,7 +558,7 @@ func handle_bet(delta: float) -> void:
 		bet_bar_value = 0.0
 	else:
 		bet_bar_value -= bet_bar_decrease_amount * delta
-		clampf(bet_bar_value, 0.0, 100.0)
+		bet_bar_value = clampf(bet_bar_value, 0.0, 100.0)
 
 func initiate_bet():
 	$UserInterface/ProgressBar.hide()
