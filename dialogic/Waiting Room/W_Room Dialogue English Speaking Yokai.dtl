@@ -1,34 +1,35 @@
-Psst.
-Hey you.
-You're a human right?
+[ENG]Psst.
+[ENG]Hey you.
+[ENG]You're a human right?
 - Why can I understand you?
 	label MainPath
-	I've studied all about your species.
-	I'm the only one here who can understand what you're saying. Everyone else speaks Yokai Standard.
+	[ENG]I've studied all about your species.
+	[ENG]I'm the only one here who can understand what you're saying. Everyone else speaks Yokai Standard.
 	label Info
-	Any questions?
+	[ENG]Any questions?
 	- How do I get outta here?
-		I believe there is a portal that goes back to Earth. But you need a password for the door.
-		I can't really remember it but I'm sure some Yokai here would know.
-		All I know is it is 4 words.
+		[ENG]I believe there is a portal that goes back to Earth. But you need a password for the door.
+		[ENG]I can't really remember it but I'm sure some Yokai here would know.
+		[ENG]All I know is it is 4 words.
 		jump Info
 	- What is this place?
-		This is the Spirit Auction. 
-		We meet once every few hundred years and have an auction. 
-		We find some interesting things and bid on them. 
-		What? 
-		You think that's weird?
-		The proceeds go to charity so keep your judgement to yourself. 
+		[ENG]This is the Spirit Auction.
+		[ENG]We meet once every few hundred years and have an auction.
+		[ENG]We find some interesting things and bid on them.
+		[ENG]What?
+		[ENG]You think that's weird?
+		[ENG]The proceeds go to charity so keep your judgement to yourself.
 		jump Info
-	- I'm good. 
-		Cool. Oh yeah. If you don't get back to your home before the auction ends, you'll be stuck here until the next auction. 
-		That will be in... about 240 years. 
-		That's pretty soon though.
-		Hm? You don't live that long? 
-		Wow. Only 80 years if you're lucky?
-		That's rough. I would find the portal if I were you. 
-		You should take this with you. It's the second part of a dictionary series I used to learn your language. 
-		You can use the translations to help you communicate with some of the others. 
+	- I'm good.
+		[ENG]Cool. Oh yeah. If you don't get back to your home before the auction ends, you'll be stuck here until the next auction.
+		[ENG]That will be in... about 240 years.
+		[ENG]That's pretty soon though.
+		[ENG]Hm? You don't live that long?
+		[ENG]Wow. Only 80 years if you're lucky?
+		[ENG]That's rough. I would find the portal if I were you.
+		[ENG]You should take this with you. It's the second part of a dictionary series I used to learn your language.
+		[ENG]You can use the translations to help you communicate with some of the others.
+		[signal arg="DICTIONARY2"]
 - Says who?
-	Hey hey, take it easy man. I was just curious. 
+	[ENG]Hey hey, take it easy man. I was just curious.
 	jump MainPath

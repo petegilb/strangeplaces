@@ -12,6 +12,7 @@ enum GameState {
 
 @export var waiting_room_song: AudioStream
 @export var auction_started_song: AudioStream
+@export var auction_ended_song: AudioStream
 @export var before_auction_time: int = 20
 @export var during_auction_time: int = 30
 @export var auction_items = ["MP3 Player", "YSD for Dummies", "Kitsune Painting", "Cucumber", "Kanabo"]
@@ -51,6 +52,8 @@ func _on_dialogic_signal(argument:String):
 		player.check_bet()
 	if argument == "startbidding":
 		start_bidding()
+	if argument == "DICTIONARY2":
+		player.add_item_to_inventory("YSD for Dummies Vol.2")
 		
 func _process(_delta: float) -> void:
 	if $AuctionTimer.is_stopped():
@@ -153,6 +156,9 @@ func stop_bidding() -> void:
 func end_auction() -> void:
 	state = GameState.AuctionEnded
 	print("the auction has ended!")
+	$Music.stop()
+	$Music.stream = auction_ended_song
+	$Music.play()
 	
 func set_bid(bid: int, bidder: Node3D):
 	highest_bid = bid

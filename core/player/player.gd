@@ -592,4 +592,18 @@ func check_bet():
 func add_item_to_inventory(new_item: String):
 	inventory.append(new_item)
 	
+func get_dictionaries() -> Array[int]:
+	var result: Array[int] = []
+	var dict1 = "YSD for Dummies"
+	var dict2 = "YSD for Dummies Vol.2"
+	var dict3 = "YSD for Dummies Vol.3"
+	for item in inventory:
+		if item == dict1:
+			result.append(1)
+		if item == dict2:
+			result.append(2)
+		if item == dict3:
+			result.append(3)
+	return result
+	
 #endregion

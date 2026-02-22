@@ -62,7 +62,7 @@ auction_location = NodePath("../AuctionNPCLocations/NpcTarget1")
 
 [node name="Npc2" parent="." unique_id=1879901776 node_paths=PackedStringArray("auction_location") groups=["bidder"] instance=ExtResource("7_l53as")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4710393, 0.49091458, -26)
-dialogue_timeline_list = Array[String](["W_Room Dialogue 4", "Random NPC Dialogue 4", "NPC with Puzzle 1"])
+dialogue_timeline_list = Array[String](["W_Room Dialogue English Speaking Yokai", "Random NPC Dialogue 4", "NPC with Puzzle 1"])
 auction_location = NodePath("../AuctionNPCLocations/NpcTarget2")
 
 [node name="Npc3" parent="." unique_id=1335514970 node_paths=PackedStringArray("auction_location") groups=["bidder"] instance=ExtResource("7_l53as")]

@@ -19,12 +19,25 @@ func load_game_state(load_flag:=LoadFlags.FULL_LOAD) -> void:
 ####################################################################################################
 
 func modifier_yokai_translator(text:String) -> String:
+	if text.contains("[ENG]"):
+		return text.substr(5)
 	var font_path: String = "res://assets/fonts/stray.ttf"
 	var regex = RegEx.new()
+	
+	var global = Engine.get_main_loop().root.get_node_or_null("Global")
+	var player_dicts: Array[int] = global.get_dictionaries()
 	
 	var dictionary1 = "EZCTJMAQ"
 	var dictionary2 = "OFXYKNWVP"
 	var dictionary3 = "IGBRSHDLU"
+	
+	for element in player_dicts:
+		if element == 1:
+			dictionary1 = ""
+		if element == 2:
+			dictionary2 = ""
+		if element == 3:
+			dictionary3 = ""
 	
 	# TODO check if the player has the dictionaries
 	var letters_to_change = dictionary1 + dictionary2 + dictionary3

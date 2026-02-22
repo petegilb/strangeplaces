@@ -16,3 +16,6 @@ func pause_timer() -> void:
 
 func resume_timer() -> void:
 	main.resume_timer()
+
+func get_dictionaries() -> Array[int]:
+	return main.player.get_dictionaries()
