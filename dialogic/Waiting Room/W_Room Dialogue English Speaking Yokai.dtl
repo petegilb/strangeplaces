@@ -8,9 +8,9 @@ You're a human right?
 	label Info
 	Any questions?
 	- How do I get outta here?
-		I believe there is a portal that goes back to Earth. But you need a code for the door.
-		I can't really remember it but I'm sure some yokai here would know.
-		All I know is it is 4 digits.
+		I believe there is a portal that goes back to Earth. But you need a password for the door.
+		I can't really remember it but I'm sure some Yokai here would know.
+		All I know is it is 4 words.
 		jump Info
 	- What is this place?
 		This is the Spirit Auction. 
@@ -27,6 +27,8 @@ You're a human right?
 		Hm? You don't live that long? 
 		Wow. Only 80 years if you're lucky?
 		That's rough. I would find the portal if I were you. 
+		You should take this with you. It's the second part of a dictionary series I used to learn your language. 
+		You can use the translations to help you communicate with some of the others. 
 - Says who?
 	Hey hey, take it easy man. I was just curious. 
 	jump MainPath
