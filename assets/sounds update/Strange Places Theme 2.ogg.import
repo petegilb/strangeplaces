@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bu2vfh67x0oat"
+path="res://.godot/imported/Strange Places Theme 2.ogg-680c414829c0ef57b52f596ee18acdea.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds update/Strange Places Theme 2.ogg"
+dest_files=["res://.godot/imported/Strange Places Theme 2.ogg-680c414829c0ef57b52f596ee18acdea.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
